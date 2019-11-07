@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Link;
 use Illuminate\Http\Request;
 use App\Contracts\UrlShortenerContract;
 
@@ -30,6 +31,13 @@ class LinksController extends Controller
         return redirect('/')->with([
             'url' => url($link->hash)
         ]);
+    }
+
+    public function show(Link $link)
+    {
+        $link->load('visitors');
+
+        return view('show', compact('link'));
     }
 
     public function process($hash)

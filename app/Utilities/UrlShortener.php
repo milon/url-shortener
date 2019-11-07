@@ -2,8 +2,9 @@
 
 namespace App\Utilities;
 
-use App\Link;
+use App\Models\Link;
 use App\Contracts\UrlShortenerContract;
+use Jenssegers\Agent\Agent;
 
 class UrlShortener implements UrlShortenerContract
 {
@@ -25,7 +26,13 @@ class UrlShortener implements UrlShortenerContract
         $link = Link::where('hash', $hash)->first();
 
         if($link) {
-            $link->increment('counter');
+            $agent = new Agent;
+            $link->visitors()->create([
+                'os'      => $agent->platform(),
+                'ip'      => request()->ip(),
+                'device'  => $agent->device(),
+                'browser' => $agent->browser(),
+            ]);
         }
 
         return $link;

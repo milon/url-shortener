@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinksTable extends Migration
+class CreateVisitorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table) {
+        Schema::create('visitors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('url');
-            $table->string('hash')->unique();
-            $table->boolean('is_private')->default(false);
-            $table->json('allowed_email')->nullable();
+            $table->unsignedBigInteger('link_id');
+            $table->string('ip')->nullable();
+            $table->string('os')->nullable();
+            $table->string('browser')->nullable();
+            $table->string('device')->nullable();
+            $table->json('meta')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::dropIfExists('visitor');
     }
 }

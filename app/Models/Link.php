@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\User;
 use Illuminate\Support\Str;
@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     protected $fillable = ['url'];
+
+    protected $casts = [
+        'allowed_email' => 'array',
+        'is_private'    => 'boolean',
+    ];
 
     protected static function boot()
     {
@@ -23,5 +28,10 @@ class Link extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function visitors()
+    {
+        return $this->hasMany(Visitor::class);
     }
 }

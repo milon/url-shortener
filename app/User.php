@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Link;
+use App\Models\Link;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
