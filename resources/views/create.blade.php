@@ -39,7 +39,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="is_private" id="is-private" {{ old('is_private') ? 'checked' : '' }}>
 
-                                <label class="form-check-label" for="is_private">
+                                <label class="form-check-label" for="is-private">
                                     {{ __('Is Private') }}
                                 </label>
                             </div>
