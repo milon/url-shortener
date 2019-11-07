@@ -17,7 +17,7 @@ class CreateLinksTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('url');
-            $table->string('hash');
+            $table->string('hash')->unique();
             $table->integer('counter')->unsigned()->default(0);
             $table->timestamps();
         });
