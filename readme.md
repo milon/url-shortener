@@ -29,6 +29,16 @@ Then you can visit the url shortener in this url- `http://127.0.0.1:8000`
 
 This application can be used both in logged in or logged out state. But for using the full potential, you should logged in.
 
+This project has following features-
+
+- Full fledged registration and login system
+- Proper validation for each form
+- Option for private url
+- Basic statistics
+- Basic Admin Panel
+
+[screenshots](screenshots.md)
+
 ## Admin User
 
 There is no way to create an admin user from the UI. You need change the value of `is_admin` in the users table directly from database to gain admin access.
