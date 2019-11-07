@@ -16,7 +16,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-Then you need to put your database credentials in the .env file. After that run these-
+Then you need to put your database credentials in the .env file. I used MySQL in this project, but any [Eloquent](https://laravel.com/docs/6.x/eloquent) supported relational database can be used. After that run these-
 
 ```
 php artisan migrate
