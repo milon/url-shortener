@@ -36,10 +36,16 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin'          => 'boolean',
     ];
 
     public function links()
     {
         return $this->hasMany(Link::class);
+    }
+
+    public function getIsAdminLabelAttribute()
+    {
+        return $this->is_admin ? 'Yes': 'No';
     }
 }

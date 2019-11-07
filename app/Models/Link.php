@@ -41,6 +41,10 @@ class Link extends Model
 
     public function getAllowedEmailLabelAttribute()
     {
+        if(! $this->allowed_email) {
+            return '-';
+        }
+
         return collect(explode(',', $this->allowed_email))->transform(function ($item) {
             return trim($item);
         })->implode(', ');

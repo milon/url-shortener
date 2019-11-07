@@ -11,6 +11,6 @@ class DashboardController extends Controller
     {
         $links = Link::where('user_id', auth()->id())->withCount('visitors')->paginate(10);
 
-        return view('home', compact('links'));
+        return view('dashboard', compact('links'));
     }
 }

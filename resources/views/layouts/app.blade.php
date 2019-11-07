@@ -49,13 +49,22 @@
                                 </li>
                             @endif
                         @else
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    @if(auth()->user()->is_admin)
+                                        <span class="badge badge-secondary">{{ __('Admin') }}</span> &nbsp;
+                                    @endif
+                                    {{ auth()->user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="/dashboard" class="dropdown-item">{{ __('Dashboard') }}</a>
+                                    @if(auth()->user()->is_admin)
+                                        <a href="/admin/links" class="dropdown-item">{{ __('All Links') }}</a>
+                                        <a href="/admin/users" class="dropdown-item">{{ __('Users') }}</a>
+                                        <div class="dropdown-divider"></div>
+                                    @endif
+                                    <a href="/dashboard" class="dropdown-item">{{ __('My Dashboard') }}</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
