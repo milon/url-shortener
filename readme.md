@@ -10,6 +10,8 @@ It's a Laravel 5.6 application with a very little functionality. You can install
 git clone git@github.com:milon/url-shortener.git url
 cd url
 composer install
+npm install
+npm run dev
 cp .env.example .env
 php artisan key:generate
 ```
