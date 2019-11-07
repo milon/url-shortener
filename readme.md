@@ -33,6 +33,8 @@ There is no way to create an admin user from the UI. You need change the value o
 
 You can also run `php artisan db:seed` to create an admin user with the following credentials-
 
+| Name | Value |
+|------|-----------|
 | Name | Admin User |
 | Email | admin@url-shortener.com |
 | Password | password |
