@@ -3,6 +3,7 @@
 namespace App;
 
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model
@@ -14,8 +15,8 @@ class Link extends Model
         parent::boot();
 
         static::creating(function($link){
-            $pool = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789';
-            $this->hash = substr(str_shuffle(str_repeat($pool, 5)), 0, 6);
+            $link->hash = Str::random(6);
+            $link->user_id = auth()->id();
         });
     }
 

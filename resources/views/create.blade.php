@@ -3,16 +3,22 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
 
-                <form method="POST" action="{{ route('login') }}">
+                @if(session()->has('url'))
+                    <div class="alert alert-success">
+                        Here you go- <a target="_blank" href="{{ session()->get('url') }}">{{ session()->get('url') }}</a>
+                    </div>
+                @endif
+
+                <form method="POST" action="{{ url('/links') }}">
                     @csrf
 
                     <div class="form-group row">
-                        <label for="url" class="col-md-4 col-form-label text-md-right">{{ __('Long URL') }}</label>
+                        <label for="url" class="col-md-3 col-form-label text-md-right">{{ __('Long URL') }}</label>
 
-                        <div class="col-md-6">
-                            <input id="url" type="url" class="form-control @error('url') is-invalid @enderror" name="url" placeholder="Long URL goes here..." autocomplete="off" autofocus>
+                        <div class="col-md-8">
+                            <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" placeholder="Long URL goes here..." autocomplete="off" autofocus>
 
                             @error('url')
                                 <span class="invalid-feedback" role="alert">
@@ -23,7 +29,7 @@
                     </div>
 
                     <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
+                        <div class="col-md-8 offset-md-3">
                             <button type="submit" class="btn btn-primary">
                                 {{ __('Shorten URL') }}
                             </button>

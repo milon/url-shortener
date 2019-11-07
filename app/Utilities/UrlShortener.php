@@ -2,14 +2,16 @@
 
 namespace App\Utilities;
 
-use App\Models\Link;
+use App\Link;
 use App\Contracts\UrlShortenerContract;
 
-class UrlShortener implements UrlShortnerContract
+class UrlShortener implements UrlShortenerContract
 {
     public function make($url)
     {
-        $link = Link::where('url', $url)->first();
+        $link = Link::where('url', $url)
+            ->where('user_id', auth()->id())
+            ->first();
 
         if(! $link) {
             $link = Link::create(['url' => $url]);

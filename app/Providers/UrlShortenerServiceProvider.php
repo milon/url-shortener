@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Utilities\UrlShortner;
-use App\Contract\UrlShortnerContract;
+use App\Utilities\UrlShortener;
+use App\Contracts\UrlShortenerContract;
 use Illuminate\Support\ServiceProvider;
 
-class UrlShortnerServiceProvider extends ServiceProvider
+class UrlShortenerServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -25,6 +25,6 @@ class UrlShortnerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(UrlShortnerContract::class, UrlShortner::class);
+        $this->app->bind(UrlShortenerContract::class, UrlShortener::class);
     }
 }

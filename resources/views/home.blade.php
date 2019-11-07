@@ -8,13 +8,31 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Url</td>
+                                <td>Shorten Link</td>
+                                <td>Visits</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach ($links as $link)
+                                <tr>
+                                    <td>{{ $link->url }}</td>
+                                    <td>{{ url($link->hash) }}</td>
+                                    <td>{{ $link->counter }}</td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    {{ $links->links() }}
+
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Contract;
+namespace App\Contracts;
 
-interface UrlShortnerContract
+interface UrlShortenerContract
 {
     public function make($url);
 
