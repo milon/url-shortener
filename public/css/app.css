@@ -11100,3 +11100,7 @@ a.text-dark:focus {
   }
 }
 
+.hidden {
+  display: none;
+}
+

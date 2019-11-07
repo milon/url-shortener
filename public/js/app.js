@@ -36920,6 +36920,22 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$(document).ready(function () {
+  if ($('#is-private').is(':checked')) {
+    $('#allowed-email').removeClass('hidden');
+  } else {
+    $('#allowed-email').addClass('hidden');
+  }
+
+  $('#is-private').click(function () {
+    if ($(this).is(':checked')) {
+      $('#allowed-email').removeClass('hidden');
+    } else {
+      $('#allowed-email').addClass('hidden');
+    }
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

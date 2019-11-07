@@ -11,6 +11,12 @@
                     </div>
                 @endif
 
+                @if(session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ url('/links') }}">
                     @csrf
 
@@ -18,10 +24,36 @@
                         <label for="url" class="col-md-2 col-form-label text-md-right">{{ __('Long URL') }}</label>
 
                         <div class="col-md-8">
-                            <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" placeholder="Long URL goes here..." autocomplete="off" autofocus>
+                            <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') }}" placeholder="Long URL goes here..." autocomplete="off" autofocus>
 
                             @error('url')
                                 <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="is_private" id="is-private" {{ old('is_private') ? 'checked' : '' }}>
+
+                                <label class="form-check-label" for="is_private">
+                                    {{ __('Is Private') }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row hidden" id="allowed-email">
+                        <label for="url" class="col-md-2 col-form-label text-md-right">{{ __('Allowed Emails') }}</label>
+
+                        <div class="col-md-8">
+                            <input type="text" class="form-control @error('allowed_email') is-invalid @enderror" name="allowed_email" placeholder="Comma separated emails" autocomplete="off">
+
+                            @error('allowed_email')
+                            <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror

@@ -14,6 +14,7 @@
                             <tr>
                                 <td>{{ __('Url') }}</td>
                                 <td>{{ __('Shorten Link') }}</td>
+                                <td>{{ __('Is Private') }}</td>
                                 <td>{{ __('Visitors') }}</td>
                                 <td>{{ __('Created At') }}</td>
                                 <td>{{ __('Details') }}</td>
@@ -21,17 +22,22 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($links as $link)
+                            @forelse ($links as $link)
                                 <tr>
                                     <td>{{ $link->url }}</td>
                                     <td>{{ url($link->hash) }}</td>
+                                    <td>{{ $link->isPrivateLabel }}</td>
                                     <td>{{ $link->visitors_count }}</td>
                                     <td>{{ $link->created_at->diffForHumans() }}</td>
                                     <td>
                                         <a href="{{ url("links/{$link->id}") }}">{{ __('Show') }}</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5">No links yet!</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
 

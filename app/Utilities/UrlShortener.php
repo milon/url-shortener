@@ -4,7 +4,6 @@ namespace App\Utilities;
 
 use App\Models\Link;
 use App\Contracts\UrlShortenerContract;
-use Jenssegers\Agent\Agent;
 
 class UrlShortener implements UrlShortenerContract
 {
@@ -23,18 +22,6 @@ class UrlShortener implements UrlShortenerContract
 
     public function byHash($hash)
     {
-        $link = Link::where('hash', $hash)->first();
-
-        if($link) {
-            $agent = new Agent;
-            $link->visitors()->create([
-                'os'      => $agent->platform(),
-                'ip'      => request()->ip(),
-                'device'  => $agent->device(),
-                'browser' => $agent->browser(),
-            ]);
-        }
-
-        return $link;
+        return Link::where('hash', $hash)->first();
     }
 }

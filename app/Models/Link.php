@@ -11,7 +11,6 @@ class Link extends Model
     protected $fillable = ['url'];
 
     protected $casts = [
-        'allowed_email' => 'array',
         'is_private'    => 'boolean',
     ];
 
@@ -33,5 +32,28 @@ class Link extends Model
     public function visitors()
     {
         return $this->hasMany(Visitor::class);
+    }
+
+    public function getIsPrivateLabelAttribute()
+    {
+        return $this->is_private ? 'Yes': 'No';
+    }
+
+    public function getAllowedEmailLabelAttribute()
+    {
+        return collect(explode(',', $this->allowed_email))->transform(function ($item) {
+            return trim($item);
+        })->implode(', ');
+    }
+
+    public function isAllowedByPrivateUser(?User $user)
+    {
+        if(! $user) {
+            return false;
+        }
+
+        return collect(explode(',', $this->allowed_email))->transform(function ($item) {
+            return trim($item);
+        })->contains($user->email);
     }
 }

@@ -19,7 +19,7 @@ class CreateLinksTable extends Migration
             $table->string('url');
             $table->string('hash')->unique();
             $table->boolean('is_private')->default(false);
-            $table->json('allowed_email')->nullable();
+            $table->text('allowed_email')->nullable();
             $table->timestamps();
         });
     }

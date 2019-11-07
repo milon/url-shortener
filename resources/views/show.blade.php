@@ -22,6 +22,14 @@
                                     <td>{{ __('Created At') }}</td>
                                     <td>{{ $link->created_at->diffForHumans() }}</td>
                                 </tr>
+                                <tr>
+                                    <td>{{ __('Is Private') }}</td>
+                                    <td>{{ $link->isPrivateLabel }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('Allowed Emails') }}</td>
+                                    <td>{{ $link->allowedEmailLabel }}</td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -38,7 +46,7 @@
                             </thead>
 
                             <tbody>
-                            @foreach ($link->visitors as $visitor)
+                            @forelse ($visitors as $visitor)
                                 <tr>
                                     <td>{{ $visitor->ip }}</td>
                                     <td>{{ $visitor->os }}</td>
@@ -46,9 +54,15 @@
                                     <td>{{ $visitor->device }}</td>
                                     <td>{{ $visitor->created_at->diffForHumans() }}</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5">No visitor yet!</td>
+                                </tr>
+                            @endforelse
                             </tbody>
                         </table>
+
+                        {{ $visitors->links() }}
 
                     </div>
                 </div>
