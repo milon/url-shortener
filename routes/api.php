@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/links/{hash}', 'LinksController@byHash')->middleware('auth:api');
+Route::post('/links', 'LinksController@create')->middleware('auth:api');
