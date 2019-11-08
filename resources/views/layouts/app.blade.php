@@ -65,6 +65,7 @@
                                         <div class="dropdown-divider"></div>
                                     @endif
                                     <a href="/dashboard" class="dropdown-item">{{ __('My Dashboard') }}</a>
+                                    <a href="/settings" class="dropdown-item">{{ __('Settings') }}</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
