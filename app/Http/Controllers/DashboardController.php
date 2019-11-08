@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
@@ -37,6 +38,17 @@ class DashboardController extends Controller
 
         return redirect('/settings')->with([
             'message' => 'User profile updated.',
+        ]);
+    }
+
+    public function generateToken(Request $request)
+    {
+        $user = auth()->user();
+        $user->api_token = Str::random(30);
+        $user->save();
+
+        return redirect('/settings')->with([
+            'message' => 'New API token created successfully.',
         ]);
     }
 }

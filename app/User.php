@@ -6,6 +6,7 @@ use App\Models\Link;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -38,6 +39,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'is_admin'          => 'boolean',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($link){
+            $link->api_token = Str::random(30);
+        });
+    }
 
     public function links()
     {
