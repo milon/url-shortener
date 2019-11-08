@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "b3fc411f-cd74-458d-8827-88a7a69072bf",
+		"name": "UrlShortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Unshorten a Link",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer vzjxb8palszAMKXDtZg4rn5lapZe4m",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/links/AKKJ5g",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"links",
+						"AKKJ5g"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create A Shorten Link",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer vzjxb8palszAMKXDtZg4rn5lapZe4m",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "url",
+							"value": "https://laravel.com/docs/6.x/validation",
+							"type": "text"
+						},
+						{
+							"key": "is_private",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "allowed_email",
+							"value": "contact@milon.im, test@gmail.de",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/links",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"links"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
