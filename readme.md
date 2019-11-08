@@ -55,8 +55,58 @@ You can also run `php artisan db:seed` to create an admin user with the followin
 
 This project comes with 2 basic API endpoints to create and retrieve shorten links. Standard token based authentication is used here. Token can be generated and obtained from settings menu. A [postman collection](UrlShortener.postman_collection.json) can be downloaded for the demonstration.
 
-### 
+#### `GET /api/links/{hash}`
 
+**Request**
+
+```
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer vzjxb8palszAMKXDtZg4rn5lapZe4m" localhost:8000/api/links/AKKJ5g
+```
+
+**Response**
+```
+{
+    "error": false,
+    "link": {
+        "created_at": "07-11-2019 09:03",
+        "hash": "AKKJ5g",
+        "is_private": false,
+        "url": "https://laravel.com/docs/6.x/eloquent-mutators#attribute-casting",
+        "user": null
+    }
+}
+```
+
+#### `POST /api/links`
+
+**Request**
+
+```
+curl -X POST -d '{"url":"https://laravel.com/docs/6.x/validation","is_private":0,"allowed_email":"contact@milon.im, test@gmail.de"}' -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer vzjxb8palszAMKXDtZg4rn5lapZe4m" localhost:8000/api/links
+```
+
+**Response**
+
+```
+{
+    "error": false,
+    "link": {
+        "url": "https://laravel.com/docs/6.x/validation",
+        "hash": "0HPOTS",
+        "is_private": true,
+        "allowed_email": [
+            "contact@milon.im",
+            "test@gmail.de"
+        ],
+        "created_at": "08-11-2019 13:12",
+        "user": {
+            "name": "Milon",
+            "email": "contact@milon.im",
+            "created_at": "07-11-2019 09:04"
+        }
+    }
+}
+```
 
 ## Developer
 
