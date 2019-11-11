@@ -37,7 +37,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5">No links yet!</td>
+                                    <td colspan="7">No links yet!</td>
                                 </tr>
                             @endforelse
                             </tbody>
