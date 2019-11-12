@@ -112,7 +112,7 @@ curl -X POST -d '{"url":"https://laravel.com/docs/6.x/validation","is_private":0
 
 **Unit Test**
 
-Make sure you have your database config setup on `.env.testing` file. I used `sqlite3` database for testing. Run the following command to run test-
+Make sure you have your database config setup on `.env.testing` file. I used `sqlite3` database for testing. Create a `database.sqlite` file in the `database` directly and then run the following command to run test-
 
 ```
 ./vendor/bin/phpunit
@@ -137,4 +137,3 @@ php artisan dusk
 Nuruzzaman Milon<br>
 contact@milon.im<br>
 <https://milon.im>
-
