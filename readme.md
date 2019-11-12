@@ -108,6 +108,30 @@ curl -X POST -d '{"url":"https://laravel.com/docs/6.x/validation","is_private":0
 }
 ```
 
+## Testing
+
+**Unit Test**
+
+Make sure you have your database config setup on `.env.testing` file. I used `sqlite3` database for testing. Run the following command to run test-
+
+```
+./vendor/bin/phpunit
+```
+
+**Browser Test**
+
+I used [Laravel Dusk](https://laravel.com/docs/6.x/dusk) for browser test. To install it's dependencies run the following command-
+
+```
+php artisan dusk:install
+```
+
+Make sure you start your server and add the homepage URL in `APP_URL` config in `.env.testing` file. Then run the following command-
+
+```
+php artisan dusk
+```
+
 ## Developer
 
 Nuruzzaman Milon<br>

@@ -2,7 +2,6 @@
 
 namespace Tests\Browser;
 
-use App\Contracts\UrlShortenerContract;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\RefreshDatabase;
