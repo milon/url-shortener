@@ -7,7 +7,7 @@
 
                 @if(session()->has('url'))
                     <div class="alert alert-success">
-                        Here you go- <a target="_blank" href="{{ session()->get('url') }}">{{ session()->get('url') }}</a>
+                        Here you go- <a id="hash-link" target="_blank" href="{{ session()->get('url') }}">{{ session()->get('url') }}</a>
                     </div>
                 @endif
 
