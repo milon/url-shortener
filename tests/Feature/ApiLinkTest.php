@@ -25,7 +25,6 @@ class ApiLinkTest extends TestCase
     {
         $url = 'https://milon.im/';
 
-        $user = factory(User::class)->create();
         $link = $this->urlShortener->make($url);
         $link->save();
 
