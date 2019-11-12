@@ -37,7 +37,7 @@ This project has following features-
 - Basic statistics
 - Basic Admin Panel
 
-[screenshots](screenshots.md)
+**[screenshots](screenshots.md)**
 
 ## Admin User
 
