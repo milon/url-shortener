@@ -16,7 +16,7 @@
                                 </tr>
                                 <tr>
                                     <td>{{ __('Shorten Link') }}</td>
-                                    <td>{{ url($link->hash) }}</td>
+                                    <td>{{ secure_url($link->hash) }}</td>
                                 </tr>
                                 <tr>
                                     <td>{{ __('Created At') }}</td>
