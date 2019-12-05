@@ -39,6 +39,10 @@ This project has following features-
 
 **[screenshots](screenshots.md)**
 
+## Demo
+
+Demo application can be found on [heroku](https://milon-url-shortener.herokuapp.com/).
+
 ## Admin User
 
 There is no way to create an admin user from the UI. You need change the value of `is_admin` in the users table directly from database to gain admin access.
