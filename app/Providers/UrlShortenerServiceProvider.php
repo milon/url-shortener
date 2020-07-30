@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Utilities\UrlShortener;
 use App\Contracts\UrlShortenerContract;
+use App\Utilities\UrlShortener;
 use Illuminate\Support\ServiceProvider;
 
 class UrlShortenerServiceProvider extends ServiceProvider

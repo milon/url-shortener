@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
         $user = auth()->user();
         $user->name = $request->name;
-        if($request->filled('password')) {
+        if ($request->filled('password')) {
             $user->password = bcrypt($request->password);
         }
         $user->save();

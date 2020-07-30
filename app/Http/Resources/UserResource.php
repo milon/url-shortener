@@ -14,7 +14,7 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        if(! $this) {
+        if (! $this) {
             return null;
         }
 

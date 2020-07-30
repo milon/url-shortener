@@ -35,7 +35,7 @@ class ApiLinkTest extends TestCase
 
         $response->assertStatus(401)
             ->assertJson([
-                'message' => 'Unauthenticated.'
+                'message' => 'Unauthenticated.',
             ]);
     }
 
@@ -51,15 +51,15 @@ class ApiLinkTest extends TestCase
         $response = $this->withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $user->api_token,
+            'Authorization' => 'Bearer '.$user->api_token,
         ])->getJson('/api/links/'.$link->hash);
 
         $response->assertStatus(200)
             ->assertJson([
                 'error' => false,
                 'link' => [
-                    'url' => $url
-                ]
+                    'url' => $url,
+                ],
             ]);
     }
 
@@ -73,7 +73,7 @@ class ApiLinkTest extends TestCase
         $response = $this->withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . $user->api_token,
+            'Authorization' => 'Bearer '.$user->api_token,
         ])->postJson('/api/links/', [
             'url' => $url,
             'is_private' => false,
@@ -83,10 +83,8 @@ class ApiLinkTest extends TestCase
              ->assertJson([
                  'error' => false,
                  'link' => [
-                     'url' => $url
-                 ]
+                     'url' => $url,
+                 ],
              ]);
     }
-
-
 }

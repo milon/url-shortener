@@ -44,7 +44,7 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        static::creating(function($link){
+        static::creating(function ($link) {
             $link->api_token = Str::random(30);
         });
     }
@@ -56,6 +56,6 @@ class User extends Authenticatable
 
     public function getIsAdminLabelAttribute()
     {
-        return $this->is_admin ? 'Yes': 'No';
+        return $this->is_admin ? 'Yes' : 'No';
     }
 }

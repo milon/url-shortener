@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\UrlShortenerContract;
 use App\Models\Link;
 use Illuminate\Http\Request;
-use App\Contracts\UrlShortenerContract;
 use Illuminate\Validation\Rule;
 use Jenssegers\Agent\Agent;
 use Spatie\ValidationRules\Rules\Delimited;
@@ -35,7 +35,7 @@ class LinksController extends Controller
 
         $link = $this->urlShortener->make($request->url);
 
-        if($request->has('is_private')) {
+        if ($request->has('is_private')) {
             $link->is_private = true;
             $link->allowed_email = $request->allowed_email;
         } else {
@@ -45,7 +45,7 @@ class LinksController extends Controller
         $link->save();
 
         return redirect('/')->with([
-            'url' => url($link->hash)
+            'url' => url($link->hash),
         ]);
     }
 
@@ -60,12 +60,12 @@ class LinksController extends Controller
     {
         $link = $this->urlShortener->byHash($hash);
 
-        if(! $link) {
+        if (! $link) {
             return redirect('/')->with(['error' => 'This URL is non existent']);
         }
 
-        if($link->is_private) {
-            if(! $link->isAllowedByPrivateUser(auth()->user())) {
+        if ($link->is_private) {
+            if (! $link->isAllowedByPrivateUser(auth()->user())) {
                 return redirect('/')->with(['error' => 'This URL is private. Log in with proper email to access.']);
             }
         }

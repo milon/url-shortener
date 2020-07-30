@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\User;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Link extends Model
 {
@@ -18,7 +18,7 @@ class Link extends Model
     {
         parent::boot();
 
-        static::creating(function($link){
+        static::creating(function ($link) {
             $link->hash = Str::random(6);
             $link->user_id = auth()->id();
         });
@@ -36,12 +36,12 @@ class Link extends Model
 
     public function getIsPrivateLabelAttribute()
     {
-        return $this->is_private ? 'Yes': 'No';
+        return $this->is_private ? 'Yes' : 'No';
     }
 
     public function getAllowedEmailLabelAttribute()
     {
-        if(! $this->allowed_email) {
+        if (! $this->allowed_email) {
             return '-';
         }
 
@@ -52,7 +52,7 @@ class Link extends Model
 
     public function isAllowedByPrivateUser(?User $user)
     {
-        if(! $user) {
+        if (! $user) {
             return false;
         }
 

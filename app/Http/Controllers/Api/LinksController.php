@@ -23,18 +23,18 @@ class LinksController extends Controller
     {
         $link = $this->urlShortener->byHash($hash);
 
-        if(! $link) {
+        if (! $link) {
             return response()->json([
                 'error'   => true,
                 'message' => "Provided hash doesn't exists.",
             ], 404);
         }
 
-        if($link->is_private) {
-            if(! $link->isAllowedByPrivateUser(auth()->user()) && auth()->id() !== $link->user_id) {
+        if ($link->is_private) {
+            if (! $link->isAllowedByPrivateUser(auth()->user()) && auth()->id() !== $link->user_id) {
                 return response()->json([
                     'error'   => true,
-                    'message' => "Provided link is private. Use proper authorization key.",
+                    'message' => 'Provided link is private. Use proper authorization key.',
                 ], 403);
             }
         }
@@ -51,7 +51,6 @@ class LinksController extends Controller
             'error' => false,
             'link' => new LinkResource($link),
         ]);
-
     }
 
     public function create(Request $request)

@@ -2,9 +2,9 @@
 
 namespace Tests\Browser;
 
-use Tests\DuskTestCase;
-use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Dusk\Browser;
+use Tests\DuskTestCase;
 
 class HomePageTest extends DuskTestCase
 {
