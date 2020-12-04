@@ -11,16 +11,16 @@
         "postinstall": "npm run production"
     },
     "devDependencies": {
-        "axios": "^0.19",
-        "bootstrap": "^4.0.0",
+        "axios": "^0.19.2",
+        "bootstrap": "^4.5.3",
         "cross-env": "^5.1",
-        "jquery": "^3.5",
+        "jquery": "^3.5.1",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.19",
-        "popper.js": "^1.12",
+        "lodash": "^4.17.20",
+        "popper.js": "^1.16.1",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.15.2",
+        "sass": "^1.29.0",
         "sass-loader": "^7.1.0",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.12"
     }
 }
