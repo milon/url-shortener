@@ -21,7 +21,7 @@
                     @csrf
 
                     <div class="form-group row">
-                        <label for="url" class="col-md-2 col-form-label text-md-right">{{ __('Long URL') }}<sup style="color: red;">*</sup></label>
+                        <label for="url" class="col-md-2 col-form-label text-md-right">{{ __('Long URL') }}<sup class="red-label">*</sup></label>
 
                         <div class="col-md-8">
                             <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" value="{{ old('url') }}" placeholder="Long URL goes here..." autocomplete="off" autofocus>
