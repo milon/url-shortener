@@ -62,6 +62,15 @@ You can also run `php artisan db:seed` to create an admin user with the followin
 | Email | admin@url.com |
 | Password | password |
 
+## CLI Command
+
+There is also two cli command for ease of use. One for shortening the URL and another for resolve a shortened URL. You can get the usage form this command-
+
+```
+php artisan url:short --help
+php artisan url:resolve --help
+```
+
 ## API
 
 This project comes with 2 basic API endpoints to create and retrieve shorten links. Standard token based authentication is used here. Token can be generated and obtained from settings menu. A [postman collection](UrlShortener.postman_collection.json) can be downloaded for the demonstration.
