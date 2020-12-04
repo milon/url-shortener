@@ -8,6 +8,6 @@ class HashGenerator
     {
         $numericHash = crc32($url);
 
-        return Base62Converter::encode($numericHash);
+        return Base62Converter::encode((string) $numericHash);
     }
 }

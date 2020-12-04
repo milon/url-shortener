@@ -1,0 +1,21 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+        - database
+        - tests
+
+
+    # The level 8 is the highest level
+    level: 5
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+
+    excludes_analyse:
+        - '#excluded files list'
+
+    checkMissingIterableValueType: false
