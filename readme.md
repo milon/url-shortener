@@ -4,7 +4,7 @@ A simple URL Shortener application with Laravel.
 
 ## Installation
 
-It's a Laravel `8.17.2` application with a very little functionality. You can install it as any other laravel 7 application. Here are the commands you need to run one by one-
+It's a Laravel `8.17.2` application with a very little functionality. You can install it as any other laravel 8 application. Here are the commands you need to run one by one-
 
 ```
 git clone git@github.com:milon/url-shortener.git url
