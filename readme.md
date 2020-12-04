@@ -4,7 +4,7 @@ A simple URL Shortener application with Laravel.
 
 ## Installation
 
-It's a Laravel `7.22.4` application with a very little functionality. You can install it as any other laravel 7 application. Here are the commands you need to run one by one-
+It's a Laravel `8.17.2` application with a very little functionality. You can install it as any other laravel 7 application. Here are the commands you need to run one by one-
 
 ```
 git clone git@github.com:milon/url-shortener.git url
@@ -20,10 +20,23 @@ Then you need to put your database credentials in the .env file. I used MySQL in
 
 ```
 php artisan migrate
+```
+
+To get an Admin user, you should run the following command-
+
+```
+php artisan db:seed
+```
+
+Then to run the development server, run this-
+
+```
 php artisan serve
 ```
 
-Then you can visit the url shortener in this url- `http://127.0.0.1:8000`
+Then you can visit the url shortener in this url- `http://127.0.0.1:8000`. 
+
+**You should also give write permission to the `storage` folder**
 
 ## Uses
 

@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Contracts\UrlShortenerContract;
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -44,7 +44,7 @@ class ApiLinkTest extends TestCase
     {
         $url = 'https://milon.im/';
 
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $link = $this->urlShortener->make($url);
         $link->save();
 
@@ -68,7 +68,7 @@ class ApiLinkTest extends TestCase
     {
         $url = 'https://milon.im/';
 
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
 
         $response = $this->withHeaders([
             'Accept' => 'application/json',

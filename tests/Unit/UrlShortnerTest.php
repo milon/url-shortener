@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\Contracts\UrlShortenerContract;
 use App\Models\Link;
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -52,7 +52,7 @@ class UrlShortnerTest extends TestCase
 
         $link1 = $this->urlShortener->make($url);
 
-        $user = factory(User::class)->create();
+        $user = User::factory()->create();
         $this->actingAs($user);
 
         $link2 = $this->urlShortener->make($url);
