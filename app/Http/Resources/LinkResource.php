@@ -24,7 +24,7 @@ class LinkResource extends JsonResource
                 })->all()
             ),
             'created_at' => $this->created_at->format('d-m-Y H:s'),
-            'user' => new UserResource($this->user),
+            'user' => $this->user ? new UserResource($this->user) : null,
         ];
     }
 }
