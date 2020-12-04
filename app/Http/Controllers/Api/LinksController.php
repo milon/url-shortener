@@ -57,6 +57,7 @@ class LinksController extends Controller
     {
         $request->validate([
             'url' => 'required|url',
+            'hash' => 'nullable|unique:links,hash',
             'is_private' => 'required|boolean',
             'allowed_email' => [
                 new Delimited('email'),
@@ -64,7 +65,7 @@ class LinksController extends Controller
             ],
         ]);
 
-        $link = $this->urlShortener->make($request->url);
+        $link = $this->urlShortener->make($request->url, $request->hash);
         $link->is_private = $request->is_private;
         $link->allowed_email = $request->allowed_email ?: null;
         $link->save();

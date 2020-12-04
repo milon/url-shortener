@@ -27,15 +27,14 @@ class LinksController extends Controller
     {
         $request->validate([
             'url' => 'required|url',
+            'hash' => 'nullable|unique:links,hash',
             'allowed_email' => [
                 new Delimited('email'),
                 Rule::requiredIf($request->has('is_private')),
             ],
         ]);
 
-//        dd($request->all());
-
-        $link = $this->urlShortener->make($request->url);
+        $link = $this->urlShortener->make($request->url, $request->hash);
 
         if ($request->has('is_private')) {
             $link->is_private = true;
