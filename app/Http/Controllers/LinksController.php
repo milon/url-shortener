@@ -33,6 +33,8 @@ class LinksController extends Controller
             ],
         ]);
 
+//        dd($request->all());
+
         $link = $this->urlShortener->make($request->url);
 
         if ($request->has('is_private')) {

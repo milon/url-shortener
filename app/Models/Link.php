@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Link extends Model
 {
-    protected $fillable = ['url'];
+    protected $fillable = ['url', 'hash'];
 
     protected $casts = [
         'is_private'    => 'boolean',
@@ -18,7 +17,6 @@ class Link extends Model
         parent::boot();
 
         static::creating(function ($link) {
-            $link->hash = Str::random(6);
             $link->user_id = auth()->id();
         });
     }

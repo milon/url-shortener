@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Contracts\UrlShortenerContract;
-use App\Utilities\UrlShortener;
+use App\Utilities\UrlShortenerService;
 use Illuminate\Support\ServiceProvider;
 
 class UrlShortenerServiceProvider extends ServiceProvider
@@ -25,6 +25,6 @@ class UrlShortenerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(UrlShortenerContract::class, UrlShortener::class);
+        $this->app->bind(UrlShortenerContract::class, UrlShortenerService::class);
     }
 }

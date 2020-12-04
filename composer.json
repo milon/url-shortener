@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3.0",
+        "ext-bcmath": "*",
         "fideloper/proxy": "^4.0",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^8.0",
