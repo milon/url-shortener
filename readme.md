@@ -22,12 +22,6 @@ Then you need to put your database credentials in the .env file. I used MySQL in
 php artisan migrate
 ```
 
-To get an Admin user, you should run the following command-
-
-```
-php artisan db:seed
-```
-
 Then to run the development server, run this-
 
 ```
@@ -65,7 +59,7 @@ You can also run `php artisan db:seed` to create an admin user with the followin
 | Name | Value |
 |------|-----------|
 | Name | Admin User |
-| Email | admin@url-shortener.com |
+| Email | admin@url.com |
 | Password | password |
 
 ## API
