@@ -11,7 +11,7 @@
         "postinstall": "npm run production"
     },
     "devDependencies": {
-        "axios": "^0.21.1",
+        "axios": "^0.21.2",
         "bootstrap": "^4.5.3",
         "cross-env": "^5.1",
         "jquery": "^3.5.1",
