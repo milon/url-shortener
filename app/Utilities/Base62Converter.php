@@ -26,7 +26,7 @@ class Base62Converter
         $val = 0;
         $arr = array_flip(str_split(self::$chars));
         for ($i = 0; $i < $len; $i++) {
-            $val = bcadd($val, bcmul($arr[$str[$i]], bcpow(self::BASE, (string) ($len - $i - 1))));
+            $val = bcadd($val, bcmul((string) $arr[$str[$i]], bcpow(self::BASE, (string) ($len - $i - 1))));
         }
 
         return $val;

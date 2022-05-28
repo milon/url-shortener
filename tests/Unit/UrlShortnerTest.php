@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Contracts\UrlShortenerContract;
+use Illuminate\Contracts\Auth\Authenticatable;
 use App\Models\Link;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -53,6 +54,7 @@ class UrlShortnerTest extends TestCase
 
         $link1 = $this->urlShortener->make($url);
 
+        /** @var Authenticatable */
         $user = User::factory()->create();
         $this->actingAs($user);
 
