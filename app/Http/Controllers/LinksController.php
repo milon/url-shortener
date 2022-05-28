@@ -73,11 +73,11 @@ class LinksController extends Controller
 
         $agent = new Agent;
         $link->visitors()->create([
-              'os'      => $agent->platform(),
-              'ip'      => request()->ip(),
-              'device'  => $agent->device(),
-              'browser' => $agent->browser(),
-          ]);
+            'os'      => $agent->platform(),
+            'ip'      => request()->ip(),
+            'device'  => $agent->device(),
+            'browser' => $agent->browser(),
+        ]);
 
         return redirect()->away($link->url);
     }

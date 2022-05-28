@@ -14,6 +14,7 @@ class UrlShortnerTest extends TestCase
     use RefreshDatabase, WithFaker;
 
     protected $urlShortener;
+
     protected $faker;
 
     protected function setUp(): void

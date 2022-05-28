@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3.0",
+        "php": "^7.4",
         "ext-bcmath": "*",
         "fideloper/proxy": "^4.0",
         "jenssegers/agent": "^2.6",
@@ -20,8 +20,8 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
         "facade/ignition": "^2.3.6",
-        "friendsofphp/php-cs-fixer": "^2.16",
-        "fzaninotto/faker": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "fakerphp/faker": "^1.0",
         "laravel/dusk": "^6.0",
         "laravel/ui": "^3.0",
         "mockery/mockery": "^1.0",
