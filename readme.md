@@ -1,3 +1,5 @@
+![Build Status](https://github.com/milon/url-shortener/actions/workflows/ci.yml/badge.svg)
+
 # URL Shortener
 
 A simple URL Shortener application with Laravel.
@@ -28,7 +30,7 @@ Then to run the development server, run this-
 php artisan serve
 ```
 
-Then you can visit the url shortener in this url- `http://127.0.0.1:8000`. 
+Then you can visit the url shortener in this url- `http://127.0.0.1:8000`.
 
 **You should also give write permission to the `storage` folder**
 

@@ -3,9 +3,9 @@
 namespace Tests\Unit;
 
 use App\Contracts\UrlShortenerContract;
-use Illuminate\Contracts\Auth\Authenticatable;
 use App\Models\Link;
 use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
